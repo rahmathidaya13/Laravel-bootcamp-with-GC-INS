@@ -23,15 +23,42 @@
                             @method('PUT')
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" value="{{ $cast->nama }}" id="nama" name="nama">
+                                <input type="text"
+                                    class="form-control @error('nama')
+                                    is-invalid
+                                @enderror"
+                                    id="nama" name="nama" value="{{ $cast->nama }}">
+                                @error('nama')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="umur" class="form-label">Umur</label>
-                                <input type="number" class="form-control" value="{{ $cast->umur }}"  id="umur" name="umur">
+                                <input type="number"
+                                    class="form-control @error('nama')
+                                is-invalid
+                            @enderror"
+                                    id="umur" name="umur" value="{{ $cast->umur }}">
+                                @error('umur')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="bio" class="form-label">Bio</label>
-                                <textarea class="form-control" name="bio" id="bio" cols="30" rows="3">{{ $cast->bio }}</textarea>
+                                <textarea
+                                    class="form-control @error('bio')
+                                is-invalid
+                            @enderror"
+                                    name="bio" id="bio" cols="30" rows="3">{{ $cast->bio }}</textarea>
+                                @error('bio')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Ubah</button>
                         </form>

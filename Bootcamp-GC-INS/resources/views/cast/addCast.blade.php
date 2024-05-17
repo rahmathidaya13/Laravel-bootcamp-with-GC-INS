@@ -22,15 +22,42 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama">
+                                <input type="text"
+                                    class="form-control @error('nama')
+                                    is-invalid
+                                @enderror"
+                                    id="nama" name="nama">
+                                @error('nama')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="umur" class="form-label">Umur</label>
-                                <input type="number" class="form-control" id="umur" name="umur">
+                                <input type="number"
+                                    class="form-control @error('nama')
+                                is-invalid
+                            @enderror"
+                                    id="umur" name="umur">
+                                @error('umur')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="bio" class="form-label">Bio</label>
-                                <textarea class="form-control" name="bio" id="bio" cols="30" rows="3"></textarea>
+                                <textarea
+                                    class="form-control @error('bio')
+                                is-invalid
+                            @enderror"
+                                    name="bio" id="bio" cols="30" rows="3"></textarea>
+                                @error('bio')
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
